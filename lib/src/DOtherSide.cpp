@@ -67,15 +67,16 @@ char *dos_qcoreapplication_application_dir_path()
     return convert_to_cstring(QCoreApplication::applicationDirPath());
 }
 
-void dos_qguiapplication_create()
+void dos_qguiapplication_create(int argc, char **argv)
 {
-    static int argc = 1;
-    static char empty[1] = {0};
-    static char *argv[] = {empty};
+    static int s_argc = argc;
+    static char **s_argv = argv;
+
+    QQmlDebuggingEnabler::enableDebugging(true);
 
     register_meta_types();
 
-    new QGuiApplication(argc, argv);
+    new QGuiApplication(s_argc, s_argv);
 }
 
 void dos_qguiapplication_delete()
