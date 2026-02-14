@@ -114,6 +114,8 @@ DOS_API DosQQmlApplicationEngine *DOS_CALL dos_qqmlapplicationengine_create(void
 /// \param filename The file to load. The file is relative to the directory that contains the application executable
 DOS_API void DOS_CALL dos_qqmlapplicationengine_load(DosQQmlApplicationEngine *vptr, const char *filename);
 
+DOS_API void DOS_CALL dos_qqmlapplicationengine_clear_component_cache(DosQQmlApplicationEngine *vptr);
+
 /// \brief Calls the QQmlApplicationEngine::load function
 /// \param vptr The QQmlApplicationEngine
 /// \param url The QUrl of the file to load
@@ -144,6 +146,8 @@ DOS_API void DOS_CALL dos_qqmlapplicationengine_addImageProvider(DosQQmlApplicat
 /// \brief Free the memory allocated for the given QQmlApplicationEngine
 /// \param vptr The QQmlApplicationEngine
 DOS_API void DOS_CALL dos_qqmlapplicationengine_delete(DosQQmlApplicationEngine *vptr);
+
+DOS_API int DOS_CALL dos_qqmlapplicationengine_root_objects_size(DosQQmlApplicationEngine *vptr);
 
 /// @}
 

@@ -127,6 +127,12 @@ void dos_qapplication_quit()
     return new QQmlApplicationEngine();
 }
 
+void dos_qqmlapplicationengine_clear_component_cache(::DosQQmlApplicationEngine *vptr)
+{
+    auto engine = static_cast<QQmlApplicationEngine *>(vptr);
+    engine->clearComponentCache();
+}
+
 void dos_qqmlapplicationengine_load(::DosQQmlApplicationEngine *vptr, const char *filename)
 {
     auto engine = static_cast<QQmlApplicationEngine *>(vptr);
@@ -170,6 +176,12 @@ void dos_qqmlapplicationengine_delete(::DosQQmlApplicationEngine *vptr)
 {
     auto engine = static_cast<QQmlApplicationEngine *>(vptr);
     delete engine;
+}
+
+int dos_qqmlapplicationengine_root_objects_size(::DosQQmlApplicationEngine *vptr)
+{
+    auto engine = static_cast<QQmlApplicationEngine *>(vptr);
+    return engine->rootObjects().size();
 }
 
 
