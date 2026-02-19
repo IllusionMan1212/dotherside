@@ -64,6 +64,11 @@ DOS_API void DOS_CALL dos_qcoreapplication_process_events_timed(DosQEventLoopPro
 /// \note The created QGuiApplication should be freed by calling dos_qguiapplication_delete()
 DOS_API void DOS_CALL dos_qguiapplication_create(int argc, char **argv, bool debuggingEnabled);
 
+DOS_API void DOS_CALL dos_qguiapplication_set_organization_name(const char* name);
+
+DOS_API void DOS_CALL dos_qguiapplication_set_organization_domain(const char* domain);
+
+
 /// \brief Calls the QGuiApplication::exec() function of the current QGuiApplication
 /// \note A QGuiApplication should have been already created through dos_qguiapplication_create()
 DOS_API void DOS_CALL dos_qguiapplication_exec(void);

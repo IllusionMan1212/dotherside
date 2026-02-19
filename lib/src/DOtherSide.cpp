@@ -81,6 +81,16 @@ void dos_qguiapplication_create(int argc, char **argv, bool debuggingEnabled)
     new QGuiApplication(s_argc, s_argv);
 }
 
+void dos_qguiapplication_set_organization_name(const char* name)
+{
+    qGuiApp->setOrganizationName(name);
+}
+
+void dos_qguiapplication_set_organization_domain(const char* domain)
+{
+    qGuiApp->setOrganizationDomain(domain);
+}
+
 void dos_qguiapplication_delete()
 {
     delete qGuiApp;
