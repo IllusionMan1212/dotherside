@@ -91,6 +91,16 @@ void dos_qguiapplication_set_organization_domain(const char* domain)
     qGuiApp->setOrganizationDomain(domain);
 }
 
+void dos_qguiapplication_set_application_name(const char* name)
+{
+    qGuiApp->setApplicationName(name);
+}
+
+void dos_qguiapplication_set_application_version(const char* version)
+{
+    qGuiApp->setApplicationVersion(version);
+}
+
 void dos_qguiapplication_delete()
 {
     delete qGuiApp;
