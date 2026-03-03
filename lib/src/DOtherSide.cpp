@@ -101,6 +101,11 @@ void dos_qguiapplication_set_application_version(const char* version)
     qGuiApp->setApplicationVersion(version);
 }
 
+void dos_qguiapplication_set_window_icon(const char* iconPath)
+{
+    qGuiApp->setWindowIcon(QIcon(iconPath));
+}
+
 void dos_qguiapplication_delete()
 {
     delete qGuiApp;

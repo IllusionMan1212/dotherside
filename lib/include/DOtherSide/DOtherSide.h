@@ -72,6 +72,7 @@ DOS_API void DOS_CALL dos_qguiapplication_set_application_name(const char* name)
 
 DOS_API void DOS_CALL dos_qguiapplication_set_application_version(const char* version);
 
+DOS_API void DOS_CALL dos_qguiapplication_set_window_icon(const char* iconPath);
 
 /// \brief Calls the QGuiApplication::exec() function of the current QGuiApplication
 /// \note A QGuiApplication should have been already created through dos_qguiapplication_create()
