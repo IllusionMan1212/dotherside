@@ -25,6 +25,7 @@
 #include <QtCore/QHash>
 #include <QtCore/QPointer>
 #include <QtCore/QResource>
+#include <QtCore/QStringList>
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlContext>
 #include <QtQml/QQmlApplicationEngine>
@@ -421,6 +422,15 @@ void dos_qqmlcontext_setcontextproperty(::DosQQmlContext *vptr, const char *name
     data.reserve(size);
     for (int i = 0; i < size; ++i)
         data << *(static_cast<QVariant *>(array[i]));
+    return new QVariant(data);
+}
+
+::DosQVariant *dos_qvariant_create_string_array(int size, const char **array)
+{
+    QStringList data;
+    data.reserve(size > 0 ? size : 0);
+    for (int i = 0; i < size; ++i)
+        data << QString::fromUtf8(array && array[i] ? array[i] : "");
     return new QVariant(data);
 }
 

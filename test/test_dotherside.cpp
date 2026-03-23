@@ -220,6 +220,22 @@ private slots:
 
         std::for_each(data.begin(), data.end(), &dos_qvariant_delete);
     }
+
+    void testStringArray()
+    {
+        const char *data[] = {"Foo", "Bar", "Baz"};
+        VoidPointer variant(dos_qvariant_create_string_array(3, data), &dos_qvariant_delete);
+        QVERIFY(variant.get());
+
+        auto qvariant = static_cast<QVariant *>(variant.get());
+        QVERIFY(qvariant->canConvert<QStringList>());
+
+        const QStringList values = qvariant->toStringList();
+        QCOMPARE(values.size(), 3);
+        QCOMPARE(values.at(0), QStringLiteral("Foo"));
+        QCOMPARE(values.at(1), QStringLiteral("Bar"));
+        QCOMPARE(values.at(2), QStringLiteral("Baz"));
+    }
 };
 
 /*

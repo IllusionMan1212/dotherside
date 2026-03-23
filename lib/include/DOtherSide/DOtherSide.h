@@ -361,6 +361,13 @@ DOS_API DosQVariant *DOS_CALL dos_qvariant_create_double(double value);
 /// \note The \p array is owned by the caller thus it will not be deleted
 DOS_API DosQVariant *DOS_CALL dos_qvariant_create_array(int size, DosQVariant **array);
 
+/// \brief Create a new QVariant holding a QStringList
+/// \return A new QVariant
+/// \param size The size of the string array
+/// \param array The UTF-8 string array that will be inserted in the inner QStringList
+/// \note The \p array and its items are owned by the caller thus they will not be deleted
+DOS_API DosQVariant *DOS_CALL dos_qvariant_create_string_array(int size, const char **array);
+
 /// \brief Calls the QVariant::setValue<int>() function
 /// \param vptr The QVariant
 /// \param value The int value
